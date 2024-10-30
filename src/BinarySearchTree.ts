@@ -1,26 +1,16 @@
-class BinaryNode {
-	value: number
-	left: BinaryNode | null
-	right: BinaryNode | null
+import BinaryNode from './BinaryNode'
 
-	constructor(val?: number, left?: BinaryNode | null, right?: BinaryNode | null) {
-		this.value = val === undefined ? 0 : val
-		this.left = left === undefined ? null : left
-		this.right = right === undefined ? null : right
-	}
-}
-
-export class BinarySearchTree {
+export class BinarySearchTree<T> {
 	// root node of our tree
-	root: BinaryNode | null
+	root: BinaryNode<T> | null
 
 	constructor() {
 		this.root = null
 	}
 
-	insert(val: number): void {
+	insert(val: T): void {
 		// Insert value into tree at appropriate node
-		function insert(node: BinaryNode | null, value: number) {
+		const insert = (node: BinaryNode<T> | null, value: T) => {
 			// If node is null, assume this.root is null. Create new node for this.root and return.
 			if (node === null) {
 				this.root = new BinaryNode(value)
@@ -55,9 +45,9 @@ export class BinarySearchTree {
 		insert(this.root, val)
 	}
 
-	delete(val: number): void {
+	delete(val: T): void {
 		// Find the node we're looking for. Return null if not found.
-		function find(node: BinaryNode | null, value: number): BinaryNode | null {
+		function find(node: BinaryNode<T> | null, value: T): BinaryNode<T> | null {
 			if (node === null) return null
 
 			if (node.value === value) return node
@@ -68,7 +58,7 @@ export class BinarySearchTree {
 		}
 
 		// Find the bottom right most node of a branch starting at the given node.
-		function findBottomRight(node: BinaryNode): BinaryNode | null {
+		function findBottomRight(node: BinaryNode<T>): BinaryNode<T> | null {
 			if (node.right) return findBottomRight(node.right)
 
 			return node
@@ -97,7 +87,7 @@ export class BinarySearchTree {
 		}
 
 		// If node is found and has left and right children, find most bottom right child from left child.
-		let bottomRight = findBottomRight(node.left as BinaryNode)
+		let bottomRight = findBottomRight(node.left as BinaryNode<T>)
 		if (!bottomRight) return
 
 		// Replace node's value with bottomRight's value and set bottomRight to null
