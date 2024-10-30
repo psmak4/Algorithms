@@ -47,6 +47,8 @@ export default class Queue<T> {
 	}
 
 	peek(): T | undefined {
+		if (this.length === 0) return undefined
+
 		return this.head?.value
 	}
 }
