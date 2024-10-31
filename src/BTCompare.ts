@@ -1,8 +1,4 @@
-type BinaryNode<T> = {
-	value: T
-	left: BinaryNode<T> | null
-	right: BinaryNode<T> | null
-}
+import BinaryNode from './BinaryNode'
 
 export function BTCompare(a: BinaryNode<number> | null, b: BinaryNode<number> | null): boolean {
 	if (a === null && b === null) return true

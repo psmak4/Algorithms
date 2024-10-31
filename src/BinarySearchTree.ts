@@ -46,52 +46,37 @@ export class BinarySearchTree<T> {
 	}
 
 	delete(val: T): void {
-		// Find the node we're looking for. Return null if not found.
-		function find(node: BinaryNode<T> | null, value: T): BinaryNode<T> | null {
-			if (node === null) return null
-
-			if (node.value === value) return node
-
-			if (value < node.value) return find(node.left, value)
-
-			return find(node.right, value)
-		}
-
-		// Find the bottom right most node of a branch starting at the given node.
-		function findBottomRight(node: BinaryNode<T>): BinaryNode<T> | null {
+		function findBottomRight(node: BinaryNode<T>): BinaryNode<T> {
 			if (node.right) return findBottomRight(node.right)
 
 			return node
 		}
 
-		// Search for the value starting at the root node. Return if not found.
-		let node = find(this.root, val)
-		if (!node) return
+		function deleteNode(node: BinaryNode<T> | null, value: T): BinaryNode<T> | null {
+			if (!node) return null
 
-		// If node is found but has no children, return
-		if (!node.left && !node.right) {
-			node = null
-			return
+			if (value < node.value) {
+				node.left = deleteNode(node.left, value)
+
+				return node
+			} else if (value > node.value) {
+				node.right = deleteNode(node.right, value)
+
+				return node
+			}
+
+			if (!node.left && !node.right) return null
+
+			if (!node.left) return node.right
+			if (!node.right) return node.left
+
+			const bottomRight = findBottomRight(node.left)
+			node.value = bottomRight.value
+			node.left = deleteNode(node.left, bottomRight.value)
+
+			return node
 		}
 
-		// If node is found but only has left child, promote left child and return
-		if (node.left && !node.right) {
-			node = node.left
-			return
-		}
-
-		// If node is found but only has right child, promote right child and return
-		if (!node.left && node.right) {
-			node = node.right
-			return
-		}
-
-		// If node is found and has left and right children, find most bottom right child from left child.
-		let bottomRight = findBottomRight(node.left as BinaryNode<T>)
-		if (!bottomRight) return
-
-		// Replace node's value with bottomRight's value and set bottomRight to null
-		node.value = bottomRight.value
-		bottomRight = null
+		this.root = deleteNode(this.root, val)
 	}
 }

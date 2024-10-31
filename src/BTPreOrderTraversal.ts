@@ -1,20 +1,15 @@
-type BinaryNode<T> = {
-	value: T
-	left: BinaryNode<T> | null
-	right: BinaryNode<T> | null
-}
+import BinaryNode from './BinaryNode'
 
-function walk(node: BinaryNode<number> | null, path: number[]): number[] {
-	if (node === null)
+export default function PreOrderTraversal<T>(head: BinaryNode<T> | null): T[] {
+	function walk(node: BinaryNode<T> | null, path: T[]): T[] {
+		if (node === null) return path
+
+		path.push(node.value)
+		walk(node.left, path)
+		walk(node.right, path)
+
 		return path
+	}
 
-	path.push(node.value)
-	walk(node.left, path)
-	walk(node.right, path)
-
-	return path
-}
-
-export default function PreOrderTraversal(head: BinaryNode<number>): number[] {
 	return walk(head, [])
 }

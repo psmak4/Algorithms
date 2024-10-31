@@ -4,7 +4,7 @@
 	"description": "This repo is a compilation of algorithm implementations in TypeScript.",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest --watch --verbose --collectCoverage"
+		"test": "jest --watchAll --verbose --coverage"
 	},
 	"author": "Preston Jones",
 	"license": "ISC",

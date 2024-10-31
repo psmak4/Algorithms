@@ -1,11 +1,7 @@
-type BinaryNode<T> = {
-	value: T
-	left: BinaryNode<T> | null
-	right: BinaryNode<T> | null
-}
+import BinaryNode from './BinaryNode'
 
-export default function BTBreadthFirstSearch(head: BinaryNode<number>, needle: number): boolean {
-	const q: (BinaryNode<number> | null)[] = [head]
+export default function BTBreadthFirstSearch<T>(head: BinaryNode<T> | null, needle: T): boolean {
+	const q: (BinaryNode<T> | null)[] = [head]
 
 	while (q.length) {
 		const curr = q.shift()
