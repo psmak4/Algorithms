@@ -29,6 +29,18 @@ describe('BinarySearchTree', () => {
 		expect(bst.root?.left?.right?.value).toBe(7)
 	})
 
+	test('should not insert duplicate values', () => {
+		bst.insert(10)
+		bst.insert(5)
+		bst.insert(15)
+		bst.insert(5)
+
+		expect(bst.root?.value).toBe(10)
+		expect(bst.root?.left?.value).toBe(5)
+		expect(bst.root?.left?.left).toBeNull()
+		expect(bst.root?.left?.right).toBeNull()
+	})
+
 	test('should delete a leaf node', () => {
 		bst.insert(10)
 		bst.insert(5)

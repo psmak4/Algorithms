@@ -17,8 +17,11 @@ export class BinarySearchTree<T> {
 				return
 			}
 
+			// If value === current node's value, return as we do not allow duplicates
+			if (value === node.value) return
+
 			// If value <= current node's value...
-			if (value <= node.value) {
+			if (value < node.value) {
 				// If current node has a left child, traverse left
 				if (node.left) {
 					insert(node.left, value)
