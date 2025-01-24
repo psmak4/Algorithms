@@ -1,4 +1,4 @@
-import TrieNode from './TrieNode'
+import TrieNode from '../src/TrieNode'
 
 describe('TrieNode', () => {
 	test('should initialize with a value and wordEnd set to false', () => {

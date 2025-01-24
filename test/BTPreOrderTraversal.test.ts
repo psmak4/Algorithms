@@ -1,5 +1,5 @@
-import PreOrderTraversal from './BTPreOrderTraversal'
-import BinaryNode from './BinaryNode'
+import PreOrderTraversal from '../src/BTPreOrderTraversal'
+import BinaryNode from '../src/BinaryNode'
 
 describe('PreOrderTraversal', () => {
 	let root: BinaryNode<number>

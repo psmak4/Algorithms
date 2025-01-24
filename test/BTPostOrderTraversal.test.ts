@@ -1,5 +1,5 @@
-import PostOrderTraversal from './BTPostOrderTraversal'
-import BinaryNode from './BinaryNode'
+import PostOrderTraversal from '../src/BTPostOrderTraversal'
+import BinaryNode from '../src/BinaryNode'
 
 describe('PostOrderTraversal', () => {
 	let root: BinaryNode<number>

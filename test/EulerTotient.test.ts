@@ -1,4 +1,4 @@
-import EulerTotient from './EulerTotient'
+import EulerTotient from '../src/EulerTotient'
 
 describe('EulerTotient', () => {
 	test('should return 1 for input 1', () => {

@@ -1,4 +1,4 @@
-import Trie from './Trie'
+import Trie from '../src/Trie'
 
 describe('Trie', () => {
 	let trie: Trie

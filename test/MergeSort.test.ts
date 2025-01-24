@@ -1,4 +1,4 @@
-import MergeSort from './MergeSort'
+import MergeSort from '../src/MergeSort'
 
 describe('MergeSort', () => {
 	it('should sort an array of numbers in ascending order', () => {

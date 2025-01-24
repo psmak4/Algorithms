@@ -1,4 +1,4 @@
-import BinaryNode from './BinaryNode'
+import BinaryNode from '../src/BinaryNode'
 
 describe('BinaryNode', () => {
 	test('should initialize a node with a value and default left and right as null', () => {

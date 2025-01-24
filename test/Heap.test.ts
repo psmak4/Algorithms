@@ -1,4 +1,4 @@
-import Heap from './Heap'
+import Heap from '../src/Heap'
 
 describe('Heap', () => {
 	describe('MinHeap', () => {

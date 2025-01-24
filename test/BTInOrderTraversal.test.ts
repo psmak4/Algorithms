@@ -1,5 +1,5 @@
-import InOrderTraversal from './BTInOrderTraversal'
-import BinaryNode from './BinaryNode'
+import InOrderTraversal from '../src/BTInOrderTraversal'
+import BinaryNode from '../src/BinaryNode'
 
 describe('InOrderTraversal', () => {
 	let root: BinaryNode<number>

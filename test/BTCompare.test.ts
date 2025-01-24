@@ -1,5 +1,5 @@
-import { BTCompare } from './BTCompare'
-import BinaryNode from './BinaryNode'
+import { BTCompare } from '../src/BTCompare'
+import BinaryNode from '../src/BinaryNode'
 
 describe('BTCompare', () => {
 	test('should return true for two null trees', () => {

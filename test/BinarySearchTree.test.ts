@@ -1,5 +1,4 @@
-import BinaryNode from './BinaryNode'
-import { BinarySearchTree } from './BinarySearchTree'
+import { BinarySearchTree } from '../src/BinarySearchTree'
 
 describe('BinarySearchTree', () => {
 	let bst: BinarySearchTree<number>

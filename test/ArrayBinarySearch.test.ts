@@ -1,4 +1,4 @@
-import ArrayBinarySearch from './ArrayBinarySearch'
+import ArrayBinarySearch from '../src/ArrayBinarySearch'
 
 describe('ArrayBinarySearch', () => {
 	test('should return true when needle is found', () => {

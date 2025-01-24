@@ -1,4 +1,4 @@
-import IsSubsetSum from './IsSubsetSum'
+import IsSubsetSum from '../src/IsSubsetSum'
 
 describe('IsSubsetSum', () => {
 	test('should return true for an empty set with target 0', () => {
